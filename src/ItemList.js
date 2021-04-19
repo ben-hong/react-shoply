@@ -1,16 +1,14 @@
-import products from "./data.json";
 import Item from "./Item";
-
+import { useContext } from "react";
+import ShoplyContext from "./shoplyContext";
 function ItemList() {
-    const productKeys = Object.keys(products.products);
+    const { products } = useContext(ShoplyContext);
+    const productKeys = Object.keys(products);
 
     return (
         <ul>
             {productKeys
-                .map(key =>
-                (<li>
-                    <Item key ={key} id={key} item={products.products[key]} />
-                </li>))}
+                .map(key => <Item key={key} item={products[key]} />)}
         </ul>
     )
 }

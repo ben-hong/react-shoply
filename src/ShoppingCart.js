@@ -1,6 +1,12 @@
+import { useContext } from "react";
+import ShoplyContext from "./shoplyContext";
 
 function ShoppingCart() {
-    return <div> I'm shopping cart</div>
+    const { shoppingCart } = useContext(ShoplyContext);
+
+    return (<div> 
+        item count: {shoppingCart.length}
+    </div>)
 }
 
 export default ShoppingCart;

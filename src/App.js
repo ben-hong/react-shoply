@@ -1,21 +1,21 @@
 import React, { useReducer } from "react";
-import Item from "./Item";
+import products from "./data.json";
 import ItemList from "./ItemList";
 import ShoppingCart from "./ShoppingCart";
 import DispatchContext from "./dispatchContext";
-import ShoppingCartContext from "./shoppingCartContext";
-import ItemReducer from "./itemReducer";
+import ShoplyContext from "./shoplyContext";
+import itemReducer from "./itemReducer";
 
 function App() {
-  const [state, dispatch] = useReducer(ItemReducer, { shoppingCart: [] });
+  const [state, dispatch] = useReducer(itemReducer, { shoppingCart: [], products: products.products });
 
   return (
     <div className="App">
       <DispatchContext.Provider value={dispatch}>
-        <ShoppingCartContext.Provider value={state.shoppingCart}>
+        <ShoplyContext.Provider value={state}>
           <ItemList />
           <ShoppingCart />
-        </ShoppingCartContext.Provider>
+        </ShoplyContext.Provider>
       </DispatchContext.Provider>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import DispatchContext from "./dispatchContext";
 
-function Item({ item, id }) {
+function Item({ item }) {
 
     const dispatch = useContext(DispatchContext);
 
@@ -10,14 +10,16 @@ function Item({ item, id }) {
     }
 
     function removeItem() {
-        dispatch({ type: "removeItem", id })
+        dispatch({ type: "removeItem", name: item.name })
     }
 
-    return (<div>
-        {item.name}
-        <button onClick={addItem}>Add</button>
-        <button onClick={removeItem}>Remove</button>
-    </div>);
+    return (
+        <li>
+            {item.name}
+            <button onClick={addItem}>Add to Shopping Cart</button>
+            <button onClick={removeItem}>Remove from Shopping Cart</button>
+        </li>
+    );
 }
 
 export default Item;
