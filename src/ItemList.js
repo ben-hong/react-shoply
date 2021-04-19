@@ -11,7 +11,7 @@ function ItemList() {
             <ul>
                 {productKeys
                     .map(key => 
-                            <Item key={key} item={products[key]}/>
+                            <li><Item key={key} item={products[key]}/></li>
                         )
                 }
             </ul>

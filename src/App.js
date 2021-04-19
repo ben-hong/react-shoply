@@ -10,9 +10,8 @@ import Routes from './routes';
 
 
 function App() {
-  const [state, dispatch] = useReducer(itemReducer, { shoppingCart: [], products: products.products });
-
-  console.log(state)
+  const [state, dispatch] = 
+  useReducer(itemReducer, { shoppingCart: [], products: products.products });
 
   return (
     <div className="App">
@@ -20,6 +19,7 @@ function App() {
           <ShoplyContext.Provider value={state}>
             <BrowserRouter >
                   <Link to='/'> GO HOME YO!</Link>
+                  <Link to='/cart'> GO TO CART YO!</Link>
                   <Routes />
             </BrowserRouter>
           </ShoplyContext.Provider>
